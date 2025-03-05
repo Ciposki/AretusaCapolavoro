@@ -29,9 +29,9 @@ ul {
   flex-direction: column;
 }
 
-div {
-  border: 1px solid red;
-}
+/* div { */
+/*   border: 1px solid red; */
+/* } */
 
 ol,
 ul {
@@ -67,6 +67,7 @@ ul {
   align-items: center;
   color: white;
   text-align: center;
+  opacity: 0;
 }
 
 .hero-text h3 {
