@@ -22,19 +22,28 @@
 
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/TextPlugin.min.js"></script>
-
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/Observer.min.js"></script>
   <script>
+    let animating=true;
     // use a script tag or an external JS file
     document.addEventListener("DOMContentLoaded", (event) => {
-      
+      gsap.registerPlugin(Observer);
+      gsap.registerPlugin(TextPlugin);
+      const heroTl = gsap.timeline({yoyo: false, ease: "back.out()"});
+      let write = document.querySelector(".hero-text").querySelectorAll("h1,h3");
+      heroTl.fromTo(write[1], {text: ""}, {text: "Aretusa Team", duration: 2, delay:0.6});
+      heroTl.fromTo(write[0], {text: ""}, {text: "SR, Floridia"});
+      heroTl.fromTo(write[2], {text: ""}, {text: "Programming Team"});
+      heroTl.to(".hero", {backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("images/hero.jpg")', duration: 2, onComplete: function(){ animating = false}})
+      Observer.create({
+        type: "wheel, touch, pointer",
+        wheelSpeed:-1,
+        onDown: () => !animating && console.log("Down"),
+        onUp: () => !animating && console.log("Up"),
+        tolerance: 10,
+        preventDefault: true
 
-      gsap.registerPlugin(TextPlugin)
-      const heroTl = gsap.timeline({yoyo:false,ease:"back.out()"});
-      let write=document.querySelector(".hero-text").querySelectorAll("h1,h3");
-      heroTl.fromTo(write[1],{text:""},{text:"Aretusa Team",duration:2});
-      heroTl.fromTo(write[0],{text:""},{text:"SR, Floridia"}); 
-      heroTl.fromTo(write[2],{text:""},{text:"Programming Team"});
-      heroTl.to(".hero",{backgroundImage:'linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("images/hero.jpg")',duration:2})
+      });
     });
 
   </script>
