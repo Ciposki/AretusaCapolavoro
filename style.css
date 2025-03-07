@@ -47,7 +47,7 @@ ul {
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("images/hero.jpg");
+  background-image: linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, 1)), url("images/hero.jpg");
 
   /* Set a specific height */
 
@@ -67,7 +67,6 @@ ul {
   align-items: center;
   color: white;
   text-align: center;
-  opacity: 0;
 }
 
 .hero-text h3 {
