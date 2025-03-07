@@ -39,7 +39,7 @@ ul {
 
 
 .hero {
-  position:fixed;
+  position: fixed;
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -76,4 +76,11 @@ ul {
 .hero-text h1 {
   font-size: 10em;
 
+}
+
+@media only screen and (max-width: 600px) {
+  .hero-text h1 {
+    font-size: 5em;
+
+  }
 }
